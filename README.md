@@ -1,24 +1,86 @@
-# README
+# Grocery Store API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails API for calculating receipts at a local grocery store.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
-* System dependencies
+### Prerequisites
 
-* Configuration
+Make sure you have the following installed on your machine:
 
-* Database creation
+- Ruby (version 2.7.0 or higher)
+- Rails (version 6.0 or higher)
 
-* Database initialization
+### Installing
 
-* How to run the test suite
+Clone the repository to your local machine:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+git clone https://github.com/juan9222/GroceryStoreAPI.git
+```
 
-* Deployment instructions
+Navigate to the project directory:
 
-* ...
+```bash
+cd GroceryStoreAPI
+```
+
+Install dependencies:
+
+```bash
+bundle install
+```
+
+### Running the server
+
+Start the Rails server:
+
+```bash
+rails server
+```
+
+The server will start running at http://localhost:3000.
+
+### Making Requests
+Send a POST request to http://localhost:3000/calculate with the following JSON body format:
+
+```bash
+{
+  "items": ["Bread", "Banana", "Milk", "Apple", "Bread", "Milk"]
+}
+```
+
+### Response
+
+The API will respond with a JSON object containing the receipt details, including the total cost, individual item totals, and total savings.
+
+```bash
+{
+    "items": [
+        {
+            "item": "Bread",
+            "quantity": 2,
+            "total": 4.34
+        },
+        {
+            "item": "Banana",
+            "quantity": 1,
+            "total": 0.99
+        },
+        {
+            "item": "Milk",
+            "quantity": 2,
+            "total": 5.0
+        },
+        {
+            "item": "Apple",
+            "quantity": 1,
+            "total": 0.89
+        }
+    ],
+    "total_cost": 11.22,
+    "total_savings": 2.94
+}
+```
